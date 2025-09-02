@@ -1,5 +1,5 @@
 from sqlalchemy import Column, ForeignKey, Integer
-from settings.database import Base
+from testproject.settings.database import Base
 from sqlalchemy.orm import relationship
 from elrahapi.middleware.models import MetaLogModel
 
