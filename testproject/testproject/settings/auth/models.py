@@ -1,20 +1,19 @@
-from elrahapi.authorization.role.models import RoleModel
-
-from elrahapi.authorization.role_privilege.models import RolePrivilegeModel
-
 from elrahapi.authorization.privilege.models import PrivilegeModel
-
+from elrahapi.authorization.role.models import RoleModel
+from elrahapi.authorization.role_privilege.models import RolePrivilegeModel
 from elrahapi.authorization.user_privilege.models import UserPrivilegeModel
-
 from elrahapi.authorization.user_role.models import UserRoleModel
-from testproject.settings.database import Base
-from sqlalchemy import Boolean, Column, ForeignKey, Integer, Table, String
 from elrahapi.user.model import UserModel
+from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, Table
 from sqlalchemy.orm import relationship
+from testproject.settings.database import Base
+
+# from testproject.settings.logger.model import LogModel
 
 
 class User(UserModel, Base):
     __tablename__ = "users"
+    user_logs = relationship("LogModel", back_populates="user")
     user_privileges = relationship("UserPrivilege", back_populates="user")
     user_roles = relationship("UserRole", back_populates="user")
 
