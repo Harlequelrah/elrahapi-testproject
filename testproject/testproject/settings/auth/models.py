@@ -8,14 +8,12 @@ from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, Table
 from sqlalchemy.orm import relationship
 from testproject.settings.database import Base
 
-# from testproject.settings.logger.model import LogModel
-
 
 class User(UserModel, Base):
     __tablename__ = "users"
-    user_logs = relationship("LogModel", back_populates="user")
     user_privileges = relationship("UserPrivilege", back_populates="user")
     user_roles = relationship("UserRole", back_populates="user")
+    # user_logs = relationship("LogModel", back_populates="user")
 
 
 class Role(RoleModel, Base):

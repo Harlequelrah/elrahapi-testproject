@@ -1,5 +1,5 @@
 from elrahapi.user import schemas
-from pydantic import BaseModel, Field
+from pydantic import ConfigDict, Field, BaseModel
 
 
 class UserBaseModel(schemas.UserBaseModel):
@@ -19,10 +19,8 @@ class UserPatchModel(BaseModel, schemas.UserPatchModel):
 
 
 class UserReadModel(UserBaseModel, schemas.UserReadModel):
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 class UserFullReadModel(UserBaseModel, schemas.UserFullReadModel):
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)

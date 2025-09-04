@@ -2,8 +2,9 @@ from elrahapi.middleware.error_middleware import ErrorHandlingMiddleware
 
 # from myapp.router import app_myapp
 from elrahapi.middleware.middleware_helper import MiddlewareHelper
-from settings.auth.configs import authentication_router
-from settings.auth.routers import role_router, user_router
+# from settings.auth.configs import authentication_router
+# from settings.auth.routers import role_router, user_router
+
 from settings.database import database
 from task.router import task_router
 
