@@ -23,6 +23,7 @@ class TaskReadModel(TaskBaseModel):
     date_created: datetime
     date_updated: datetime
     date_deleted: datetime | None = None
+    is_done: bool
     is_deleted: bool
     model_config = ConfigDict(from_attributes=True)
 
