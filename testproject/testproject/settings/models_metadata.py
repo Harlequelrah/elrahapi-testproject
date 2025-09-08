@@ -4,9 +4,10 @@ from testproject.settings.auth.models import (
     User,
     UserPrivilege,
     UserRole,
+    LogModel
 )
 
-from testproject.settings.logger.model import LogModel
+# from testproject.settings.logger.model import LogModel
 from testproject.task.models import Task
 from testproject.settings.database import Base, database  # à importer en dernier
 

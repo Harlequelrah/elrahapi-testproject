@@ -7,8 +7,9 @@ router_provider = CustomRouterProvider(
     prefix="/tasks",
     tags=["task"],
     crud=task_crud,
-    # authentication=authentication,
+    authentication=authentication,
+    roles=["ADMIN"],
 )
 
-task_router = router_provider.get_public_router()
+task_router = router_provider.get_protected_router()
 # app_myapp = router_provider.get_protected_router()

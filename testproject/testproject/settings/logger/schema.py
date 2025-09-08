@@ -1,5 +1,5 @@
-from pydantic import ConfigDict
 from elrahapi.middleware import models
+from pydantic import ConfigDict
 
 
 class LogReadModel(models.MetaLogReadModel):
