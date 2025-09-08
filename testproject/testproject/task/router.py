@@ -8,7 +8,8 @@ router_provider = CustomRouterProvider(
     tags=["task"],
     crud=task_crud,
     authentication=authentication,
-    roles=["ADMIN"],
+    # roles=["ADMIN"],
+    privileges=["CAN_DO_SPECIAL_1"],
 )
 
 task_router = router_provider.get_protected_router()
