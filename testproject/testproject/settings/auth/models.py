@@ -15,6 +15,14 @@ class User(UserModel, Base):
     user_logs = relationship(LogModel, back_populates="user")
     user_privileges = relationship("UserPrivilege", back_populates="user")
     user_roles = relationship("UserRole", back_populates="user")
+    user_tasks = relationship("Task", back_populates="user")
+    assigned_tasks = relationship(
+        "Task",
+        secondary="task_assign_user_association",
+        back_populates="assigned_users",
+    )
+    profile_id = Column(Integer, ForeignKey("profiles.id"))
+    profile = relationship("Profile", back_populates="user")
 
 
 class Role(RoleModel, Base):

@@ -23,3 +23,18 @@ class Task(Base):
     date_updated = Column(DateTime, default=func.now(), onupdate=func.now())
     is_deleted = Column(Boolean, nullable=False, default=False)
     date_deleted = Column(DateTime, nullable=True)
+    user_id = Column(Integer, ForeignKey("users.id"))
+    user = relationship("User", back_populates="user_tasks")
+    assigned_users = relationship(
+        "User",
+        secondary="task_assign_user_association",
+        back_populates="assigned_tasks",
+    )
+
+
+task_assign_user_association = Table(
+    "task_assign_user_association",
+    Base.metadata,
+    Column("user_id", Integer, ForeignKey("users.id"), nullable=False),
+    Column("task_id", Integer, ForeignKey("tasks.id"), nullable=False),
+)

@@ -9,6 +9,7 @@ from testproject.settings.auth.models import (
 
 # from testproject.settings.logger.model import LogModel
 from testproject.task.models import Task
+from testproject.profile.models import Profile
 from testproject.settings.database import Base, database  # à importer en dernier
 
 database.create_tables(target_metadata=Base.metadata)

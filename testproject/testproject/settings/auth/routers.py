@@ -1,7 +1,11 @@
-from elrahapi.router.relationship import Relationship
-from elrahapi.router.router_namespace import TypeRelation
+from profile.cruds import profile_crud
+
+from elrahapi.relationship.many_to_many_class import ManyToManyClassRelationship
+from elrahapi.relationship.one_to_many import OneToManyRelationship
+from elrahapi.relationship.one_to_one import OneToOneRelationship
 from elrahapi.router.router_provider import CustomRouterProvider
 from elrahapi.router.router_routes_name import DefaultRoutesName, RelationRoutesName
+from task.cruds import task_crud
 
 from .configs import authentication
 from .cruds import (
@@ -13,24 +17,30 @@ from .cruds import (
     user_role_crud,
 )
 
-user_role_relation: Relationship = Relationship(
+user_role_relation = ManyToManyClassRelationship(
     relationship_name="user_roles",
     second_entity_crud=role_crud,
     relationship_crud=user_role_crud,
-    type_relation=TypeRelation.MANY_TO_MANY_CLASS,
     relationship_key1_name="user_id",
     relationship_key2_name="role_id",
-    default_public_relation_routes_name=[
-        RelationRoutesName.READ_ALL_BY_RELATION,
-        RelationRoutesName.DELETE_RELATION,
-    ],
+    default_public_relation_routes_name=ManyToManyClassRelationship.RELATION_RULES,
+)
+user_task_relation = OneToManyRelationship(
+    relationship_name="user_tasks",
+    second_entity_crud=task_crud,
+    default_public_relation_routes_name=OneToManyRelationship.RELATION_RULES,
+)
+profile_relation = OneToOneRelationship(
+    relationship_name="profile",
+    second_entity_crud=profile_crud,
+    default_public_relation_routes_name=OneToOneRelationship.RELATION_RULES,
 )
 user_router_provider = CustomRouterProvider(
     prefix="/users",
     tags=["users"],
     crud=user_crud,
     authentication=authentication,
-    relations=[user_role_relation],
+    relations=[user_role_relation, user_task_relation, profile_relation],
 )
 
 
