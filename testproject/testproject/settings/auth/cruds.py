@@ -1,13 +1,3 @@
-from elrahapi.crud.crud_forgery import CrudForgery
-
-from elrahapi.authorization.role.schemas import (
-    RoleCreateModel,
-    RoleFullReadModel,
-    RolePatchModel,
-    RoleReadModel,
-    RoleUpdateModel,
-)
-
 from elrahapi.authorization.privilege.schemas import (
     PrivilegeCreateModel,
     PrivilegeFullReadModel,
@@ -15,7 +5,13 @@ from elrahapi.authorization.privilege.schemas import (
     PrivilegeReadModel,
     PrivilegeUpdateModel,
 )
-
+from elrahapi.authorization.role.schemas import (
+    RoleCreateModel,
+    RoleFullReadModel,
+    RolePatchModel,
+    RoleReadModel,
+    RoleUpdateModel,
+)
 from elrahapi.authorization.role_privilege.schemas import (
     RolePrivilegeCreateModel,
     RolePrivilegeFullReadModel,
@@ -23,7 +19,6 @@ from elrahapi.authorization.role_privilege.schemas import (
     RolePrivilegeReadModel,
     RolePrivilegeUpdateModel,
 )
-
 from elrahapi.authorization.user_privilege.schemas import (
     UserPrivilegeCreateModel,
     UserPrivilegeFullReadModel,
@@ -31,7 +26,6 @@ from elrahapi.authorization.user_privilege.schemas import (
     UserPrivilegeReadModel,
     UserPrivilegeUpdateModel,
 )
-
 from elrahapi.authorization.user_role.schemas import (
     UserRoleCreateModel,
     UserRoleFullReadModel,
@@ -39,18 +33,18 @@ from elrahapi.authorization.user_role.schemas import (
     UserRoleReadModel,
     UserRoleUpdateModel,
 )
-
+from elrahapi.crud.crud_forgery import CrudForgery
 from elrahapi.crud.crud_models import CrudModels
-from .models import User, UserPrivilege, Role, Privilege, RolePrivilege, UserRole
+
+from ..database import database
+from .models import Privilege, Role, RolePrivilege, User, UserPrivilege, UserRole
 from .schemas import (
     UserCreateModel,
-    UserUpdateModel,
+    UserFullReadModel,
     UserPatchModel,
     UserReadModel,
-    UserFullReadModel,
+    UserUpdateModel,
 )
-from ..database import database
-from elrahapi.crud.crud_forgery import CrudForgery
 
 user_crud_models = CrudModels(
     entity_name="user",

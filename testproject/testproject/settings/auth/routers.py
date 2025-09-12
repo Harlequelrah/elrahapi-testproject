@@ -4,7 +4,7 @@ from elrahapi.relationship.many_to_many_class import ManyToManyClassRelationship
 from elrahapi.relationship.one_to_many import OneToManyRelationship
 from elrahapi.relationship.one_to_one import OneToOneRelationship
 from elrahapi.router.router_provider import CustomRouterProvider
-from elrahapi.router.router_routes_name import DefaultRoutesName, RelationRoutesName
+from elrahapi.router.router_routes_name import DefaultRoutesName
 from task.cruds import task_crud
 
 from .configs import authentication
@@ -45,7 +45,7 @@ user_router_provider = CustomRouterProvider(
 
 
 user_privilege_router_provider = CustomRouterProvider(
-    prefix="/users/privileges",
+    prefix="/users_privileges",
     tags=["user_privileges"],
     crud=user_privilege_crud,
     authentication=authentication,
@@ -66,14 +66,14 @@ privilege_router_provider = CustomRouterProvider(
 )
 
 role_privilege_router_provider = CustomRouterProvider(
-    prefix="/roles/privileges",
+    prefix="/roles_privileges",
     tags=["role_privileges"],
     crud=role_privilege_crud,
     authentication=authentication,
 )
 
 user_role_router_provider = CustomRouterProvider(
-    prefix="/users/roles",
+    prefix="/users_roles",
     tags=["user_roles"],
     crud=user_role_crud,
     authentication=authentication,
