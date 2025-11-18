@@ -9,6 +9,7 @@ from .secret import (
     DATABASE_PASSWORD,
     DATABASE_SERVER,
     DATABASE_USERNAME,
+    ENV,
     IS_ASYNC_ENV,
 )
 
@@ -21,10 +22,14 @@ database = DatabaseManager(
     database_name=DATABASE_NAME,
     database_server=DATABASE_SERVER,
     is_async_env=IS_ASYNC_ENV,
+    env=ENV,
 )
 
 try:
     database.create_database_if_not_exists()
+except:
+    print("hi")
 finally:
+    print("hello")
     database.create_session_manager()
     Base = declarative_base()
