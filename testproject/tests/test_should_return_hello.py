@@ -1,6 +1,3 @@
-import sys
-
-print(sys.path)
 from fastapi.testclient import TestClient
 
 from ..testproject.main import app

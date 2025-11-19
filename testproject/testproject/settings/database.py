@@ -27,9 +27,6 @@ database = DatabaseManager(
 
 try:
     database.create_database_if_not_exists()
-except:
-    print("hi")
 finally:
-    print("hello")
     database.create_session_manager()
     Base = declarative_base()
