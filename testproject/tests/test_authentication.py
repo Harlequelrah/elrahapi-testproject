@@ -4,7 +4,7 @@ import pytest
 from elrahapi.testclass.elrahtest import ElrahTest
 from elrahapi.utility.utils import update_expected_value_dates
 
-from ..myproject.settings.models_metadata import Base, database
+from ..testproject.settings.models_metadata import Base, database
 
 
 class TestAuthentication(ElrahTest):

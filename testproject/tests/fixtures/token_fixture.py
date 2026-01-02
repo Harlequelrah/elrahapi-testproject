@@ -1,7 +1,7 @@
 import pytest
 from elrahapi.authentication.token import TokenType
 
-from ...myproject.main import authentication
+from ...testproject.main import authentication
 
 
 @pytest.fixture

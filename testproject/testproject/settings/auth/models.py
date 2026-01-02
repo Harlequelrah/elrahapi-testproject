@@ -4,13 +4,14 @@ from elrahapi.authorization.role_privilege.models import RolePrivilegeModel
 from elrahapi.authorization.user_privilege.models import UserPrivilegeModel
 from elrahapi.authorization.user_role.models import UserRoleModel
 from elrahapi.user.model import UserModel
-from settings.database import Base
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, Table
 from sqlalchemy.orm import relationship
+from testproject.settings.database import Base
 
 
 class User(UserModel, Base):
     __tablename__ = "users"
+    testfield = Column(String, nullable=True)
     user_privileges = relationship("UserPrivilege", back_populates="user")
     user_roles = relationship("UserRole", back_populates="user")
     # user_logs = relationship(LogModel, back_populates="user")

@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from .schemas import UserBaseModel
+from testproject.settings.auth.schemas import UserBaseModel
 class MetaEntityUser(UserBaseModel):
     pass
 
