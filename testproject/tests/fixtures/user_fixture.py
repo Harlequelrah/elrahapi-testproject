@@ -46,8 +46,6 @@ def fake_update_user():
 def fake_test_user(client, fake_user, expected_user_value):
     user_create = client.post("/users", json=fake_user)
     user_create_json = user_create.json()
-    # user_create_json = update_expected_value_dates(user_create.json())
-    # user_create_json = exclude_dates_from_json(user_create.json())
     if (
         user_create.status_code == 201
         and user_create_json == update_expected_value_dates(expected_user_value)

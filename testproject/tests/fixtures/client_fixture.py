@@ -1,7 +1,7 @@
 import pytest
 from fastapi.testclient import TestClient
 
-from ...testproject.main import app
+from app.main import app
 
 
 
