@@ -3,25 +3,29 @@ from pydantic import BaseModel, ConfigDict, Field
 from datetime import datetime
 from decimal import Decimal
 
-# from .meta_models import EntityBaseModel
+from .meta_models import SongBaseModel
 
-class EntityCreateModel(BaseModel):
+
+class SongCreateModel(SongBaseModel):
     pass
 
-class EntityUpdateModel(BaseModel):
+
+class SongUpdateModel(SongBaseModel):
     pass
 
-class EntityPatchModel(BaseModel):
-    pass
 
-class EntityReadModel(EntityBaseModel):
-    id : int
+class SongPatchModel(BaseModel):
+    name:str|None=Field(examples=["Worth it"],default=None)
+    name: str | None = Field(examples=[60], default=None)
+
+class SongReadModel(SongBaseModel):
+    id: int
     date_created: datetime
     date_updated: datetime
     date_deleted: datetime | None = None
-    is_deleted:bool
-    model_config=ConfigDict(from_attributes=True)
+    is_deleted: bool
+    model_config = ConfigDict(from_attributes=True)
 
 
-class EntityFullReadModel(EntityReadModel):
-    model_config=ConfigDict(from_attributes=True)
+class SongFullReadModel(SongReadModel):
+    model_config = ConfigDict(from_attributes=True)

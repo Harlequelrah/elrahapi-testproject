@@ -1,4 +1,4 @@
-from app.settings.auth.models import Role, RolePrivilege, User, UserPrivilege, UserRole
+from song.models import Song
 from app.settings.config.database_config import (  # à importer en dernier
     database_manager,
 )

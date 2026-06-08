@@ -1,8 +1,5 @@
-# from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field
 
-# class EntityBaseModel(BaseModel):
-#     pass
-
-
-# class EntityInEntity2Model(BaseModel):
-#     pass
+class SongBaseModel(BaseModel):
+    name: str = Field(examples=["Worth it"])
+    duration: int = Field(examples=[60])
